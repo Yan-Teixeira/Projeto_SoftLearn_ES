@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="w-full max-w-md px-2 py-4 bg-white border border-gray-200 shadow-xl sm:rounded-xl mt-16">
+    <div class="w-full max-w-md px-2 py-4 bg-white border border-gray-200 shadow-xl sm:rounded-xl mt-16 z-[1]">
         
         {{-- 1. BLOCk DA IMAGEM (Coruja) --}}
         <div class="w-full flex justify-center"> 

@@ -1,6 +1,6 @@
 <x-guest-layout>
  
-    <div class="w-full max-w-4xl mx-auto my-6 px-6 py-8 bg-white border border-gray-200 shadow-md sm:rounded-lg mt-[-20px]">
+    <div class="w-full max-w-4xl mx-auto my-6 px-6 py-8 bg-white border border-gray-200 shadow-md sm:rounded-lg mt-[-20px] z-[1]">
 
         <h1 class="text-2xl text-center text-black mb-4">Registre-se</h1>
 
