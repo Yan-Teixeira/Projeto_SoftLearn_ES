@@ -5,6 +5,7 @@ use App\Http\Controllers\AulaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\CompeticaoController;
+use App\Http\Controllers\LevelController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +19,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/levels', [LevelController::class, 'index'])->name('levels.index');
+    Route::get('/levels/{level}', [LevelController::class, 'show'])->name('levels.show');
+    Route::post('/levels/{level}/complete', [LevelController::class, 'complete'])->name('levels.complete');
 
     Route::resource('modules', ModuleController::class);
     Route::get('/aulas', [ModuleController::class, 'index'])->name('aulas');
@@ -43,5 +47,12 @@ Route::middleware(['auth'])->group(function () {
         Route::view("/{$uri}", $view)->name($uri);
     }
 });
+
+use App\Http\Controllers\DiagramaController;
+
+Route::get('/diagramas', [DiagramaController::class, 'index'])->name('diagramas');
+
+
+
 
 require __DIR__ . '/auth.php';

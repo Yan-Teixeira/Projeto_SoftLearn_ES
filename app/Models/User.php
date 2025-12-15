@@ -49,4 +49,15 @@ class User extends Authenticatable
     public function modules() {
         return $this->hasMany(Module::class);
     }
+
+    /**
+     * Relacionamento para acessar os níveis que o usuário completou.
+     * Usa a tabela pivot 'level_user'.
+     */
+    public function completedLevels()
+    {
+        return $this->belongsToMany(Level::class, 'level_user')
+                    ->withPivot('completed_at', 'score')
+                    ->withTimestamps();
+    }
 }
