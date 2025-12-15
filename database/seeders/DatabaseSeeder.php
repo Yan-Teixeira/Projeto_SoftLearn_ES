@@ -9,11 +9,14 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // cria usuário de teste opcional
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // cria usuário de teste opcional (idempotente para rodar seed várias vezes)
+        User::firstOrCreate(
+            ['email' => 'test@example.com'],
+            [
+                'name' => 'Test User',
+                'password' => bcrypt('password'),
+            ]
+        );
 
         // chama o seeder Testes
         $this->call([

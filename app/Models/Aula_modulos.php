@@ -16,6 +16,7 @@ class Aula_modulos extends Model
     // Define o relacionamento: Um Módulo tem muitas Lições
     public function lessons()
     {
-        return $this->hasMany(Lesson::class);
+        // Usa a coluna module_id na tabela lessons
+        return $this->hasMany(Lesson::class, 'module_id');
     }
 }

@@ -14,6 +14,11 @@ class Lesson extends Model
     // Relacionamento: Uma Lição pertence a um Módulo
     public function module()
     {
-        return $this->belongsTo(Aula_modulos::class);
+        return $this->belongsTo(Aula_modulos::class, 'module_id');
+    }
+
+    public function completions()
+    {
+        return $this->hasMany(LessonCompletion::class);
     }
 }

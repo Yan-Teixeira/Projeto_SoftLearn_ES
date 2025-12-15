@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            
-            $table->foreignId('module_id')->constrained('Aula_modulos')->onDelete('cascade');
+
+            // Relaciona cada lição ao seu módulo de aula
+            $table->foreignId('module_id')->constrained('aula_modulos')->onDelete('cascade');
             $table->string('titulo');
             $table->longText('conteudo'); // Conteúdo principal (HTML, texto, link de vídeo)
             $table->integer('ordem')->default(0); // Para ordenar as aulas no Syllabus

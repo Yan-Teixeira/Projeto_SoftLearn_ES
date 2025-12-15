@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level',
+        'xp',
     ];
 
     /**
@@ -43,10 +45,22 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'level' => 'integer',
+            'xp' => 'integer',
         ];
     }
 
     public function modules() {
         return $this->hasMany(Module::class);
+    }
+
+    public function lessonCompletions()
+    {
+        return $this->hasMany(LessonCompletion::class);
+    }
+
+    public function experienceEvents()
+    {
+        return $this->hasMany(ExperienceEvent::class);
     }
 }
