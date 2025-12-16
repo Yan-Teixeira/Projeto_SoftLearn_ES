@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>SoftLearn - Transforme sua carreira com aprendizado prático</title>
-
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-    <body class="antialiased bg-gray-100">
+    <body class="antialiased bg-white w-full">
         <header class="bg-white shadow-sm">
             <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
                 <div>
@@ -37,25 +38,37 @@
             </nav>
         </header>
         <main>
-            <div class="bg-white">
-                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-                    <div class="max-w-3xl mx-auto text-center">
-                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            <div class="bg-white relative">
+                <div class="absolute inset-0 overflow-hidden z-0 opacity-60 w-full"> 
+                    <video
+                        autoplay loop muted playsinline 
+                        class="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2" 
+                        preload="auto"
+                    >
+                        <source src="/videos/video-class.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                </div>
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 z-50">
+                    <div class="max-w-3xl mx-auto text-center ">
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight opacity-90">
                             Aprenda, pratique e transforme sua carreira
                         </h1>
                         
-                        <p class="mt-6 text-lg text-gray-600">
+                        <p class="mt-6 text-lg text-grey-700 opacity-90">
                             Junte-se a milhares de alunos na plataforma que une teoria, prática com flashcards, diagramas e gamificação.
                         </p>
 
                         <div class="mt-10">
-                            <a href="{{ route('register') }}" class="bg-green-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-green-700">
+                            <a href="{{ route('register') }}" class="bg-green-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-green-700 opacity-90">
                                 Comece a aprender
                             </a>
                         </div>
                     </div>
                 </div>
+                
             </div>
+            
 
             <div id="modulos" class="py-16 md:py-24">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,7 +95,7 @@
                                 
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                                     <div class="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col h-full">
-                                        <div class="h-48 bg-gray-200 flex items-center justify-center"><span class="text-gray-500">Imagem do Módulo 1</span></div>
+                                        <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden"><img src="/img/img_scrum.png" class="" alt=""></div>
                                         <div class="p-6 flex-grow flex flex-col">
                                             <h3 class="text-xl font-bold text-gray-900 mb-2">Módulo 1: Fundamentos do Scrum</h3>
                                             <p class="text-gray-600 text-sm mb-4 flex-grow">Aprenda os conceitos básicos, papéis e cerimônias do Scrum.</p>
@@ -95,7 +108,7 @@
                                     </div>
 
                                     <div class="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col h-full">
-                                        <div class="h-48 bg-gray-200 flex items-center justify-center"><span class="text-gray-500">Imagem do Módulo 2</span></div>
+                                        <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden"><img src="/img/umlCLass.png" class="" alt=""></div>
                                         <div class="p-6 flex-grow flex flex-col">
                                             <h3 class="text-xl font-bold text-gray-900 mb-2">Módulo 2: Diagramas UML</h3>
                                             <p class="text-gray-600 text-sm mb-4 flex-grow">Domine Casos de Uso, Diagramas de Classe e Sequência.</p>
@@ -108,7 +121,7 @@
                                     </div>
 
                                     <div class="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col h-full">
-                                        <div class="h-48 bg-gray-200 flex items-center justify-center"><span class="text-gray-500">Imagem do Módulo 3</span></div>
+                                        <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden"><img src="/img/Agile.png" class="block m-0" alt=""></div>
                                         <div class="p-6 flex-grow flex flex-col">
                                             <h3 class="text-xl font-bold text-gray-900 mb-2">Módulo 3: Métodos Ágeis</h3>
                                             <p class="text-gray-600 text-sm mb-4 flex-grow">Uma visão geral sobre Kanban, XP e outros métodos.</p>
@@ -133,7 +146,7 @@
                                 
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                                     <div class="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col h-full">
-                                        <div class="h-48 bg-gray-200 flex items-center justify-center"><span class="text-gray-500">Imagem do Módulo 4</span></div>
+                                        <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden"><img src="/img/DevOps.png" class="" alt=""></div>
                                         <div class="p-6 flex-grow flex flex-col">
                                             <h3 class="text-xl font-bold text-gray-900 mb-2">Módulo 4: DevOps Básico</h3>
                                             <p class="text-gray-600 text-sm mb-4 flex-grow">Aprenda sobre CI/CD, Docker e automação de deploy.</p>
@@ -146,7 +159,7 @@
                                     </div>
 
                                     <div class="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col h-full">
-                                        <div class="h-48 bg-gray-200 flex items-center justify-center"><span class="text-gray-500">Imagem do Módulo 5</span></div>
+                                        <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden"><img src="img/SQL.png" alt=""></div>
                                         <div class="p-6 flex-grow flex flex-col">
                                             <h3 class="text-xl font-bold text-gray-900 mb-2">Módulo 5: Banco de Dados</h3>
                                             <p class="text-gray-600 text-sm mb-4 flex-grow">Entenda SQL, NoSQL e como modelar dados relacionais.</p>
@@ -159,7 +172,7 @@
                                     </div>
 
                                     <div class="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col h-full">
-                                        <div class="h-48 bg-gray-200 flex items-center justify-center"><span class="text-gray-500">Imagem do Módulo 6</span></div>
+                                        <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden"><img src="img/front-green.svg" alt=""></div>
                                         <div class="p-6 flex-grow flex flex-col">
                                             <h3 class="text-xl font-bold text-gray-900 mb-2">Módulo 6: Front-end Avançado</h3>
                                             <p class="text-gray-600 text-sm mb-4 flex-grow">Conceitos de performance, SSR e frameworks reativos.</p>
@@ -187,7 +200,7 @@
                 </div>
             </div>
 
-            <div id="recursos" class="bg-white py-16 md:py-24">
+            <div id="recursos" class="bg-white pb-16 md:pb-24">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 
                     <div class="text-center max-w-2xl mx-auto mb-12">
@@ -234,7 +247,7 @@
                 </div>
             </div>
 
-            <div class="py-16 md:py-24">
+            <div class="">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 
                     <div class="text-center max-w-2xl mx-auto mb-12">
@@ -264,7 +277,7 @@
                                         <div class="flex items-center">
                                             <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center mr-4"><span class="text-gray-500 text-xl">A</span></div>
                                             <div>
-                                                <div class="font-bold text-gray-900">Ana Silva</div>
+                                                <div class="font-bold text-green-600">Ana Silva</div>
                                                 <div class="text-sm text-gray-500">Desenvolvedora Back-end</div>
                                             </div>
                                         </div>
@@ -274,7 +287,7 @@
                                         <div class="flex items-center">
                                             <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center mr-4"><span class="text-gray-500 text-xl">B</span></div>
                                             <div>
-                                                <div class="font-bold text-gray-900">Bruno Costa</div>
+                                                <div class="font-bold text-green-600">Bruno Costa</div>
                                                 <div class="text-sm text-gray-500">Desenvolvedor Front-end</div>
                                             </div>
                                         </div>
@@ -284,7 +297,7 @@
                                         <div class="flex items-center">
                                             <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center mr-4"><span class="text-gray-500 text-xl">C</span></div>
                                             <div>
-                                                <div class="font-bold text-gray-900">Carla Moreira</div>
+                                                <div class="font-bold text-green-600">Carla Moreira</div>
                                                 <div class="text-sm text-gray-500">Estudante de Eng. de Software</div>
                                             </div>
                                         </div>
@@ -307,7 +320,7 @@
                                         <div class="flex items-center">
                                             <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center mr-4"><span class="text-gray-500 text-xl">D</span></div>
                                             <div>
-                                                <div class="font-bold text-gray-900">Daniel Martins</div>
+                                                <div class="font-bold text-green-600">Daniel Martins</div>
                                                 <div class="text-sm text-gray-500">Engenheiro de DevOps</div>
                                             </div>
                                         </div>
@@ -317,7 +330,7 @@
                                         <div class="flex items-center">
                                             <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center mr-4"><span class="text-gray-500 text-xl">E</span></div>
                                             <div>
-                                                <div class="font-bold text-gray-900">Eduarda Farias</div>
+                                                <div class="font-bold text-green-800">Eduarda Farias</div>
                                                 <div class="text-sm text-gray-500">Analista de Sistemas</div>
                                             </div>
                                         </div>
@@ -327,7 +340,7 @@
                                         <div class="flex items-center">
                                             <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center mr-4"><span class="text-gray-500 text-xl">F</span></div>
                                             <div>
-                                                <div class="font-bold text-gray-900">Felipe Guedes</div>
+                                                <div class="font-bold text-green-600">Felipe Guedes</div>
                                                 <div class="text-sm text-gray-500">Estudante</div>
                                             </div>
                                         </div>
@@ -349,7 +362,7 @@
                 </div>
             </div>
 
-            <div id="sobre-nos" class="bg-white py-16 md:py-24">
+            <div id="sobre-nos" class="bg-white">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         
@@ -369,7 +382,7 @@
                         </div>
 
                         <div class="flex items-center justify-center bg-gray-100 rounded-lg h-80">
-                            <span class="text-gray-500">Placeholder para Imagem (ex: Equipe ou Diagrama)</span>
+                            <span class="text-gray-500"><img src="/img/Coruja Estudiosa com Óculos e Livro 2.svg" alt=""></span>
                         </div>
 
                     </div>
