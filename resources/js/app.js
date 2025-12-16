@@ -1,4 +1,159 @@
 // IMPORTANTE: Este arquivo assume que o jsPlumb foi carregado globalmente via CDN no blade.
+import './bootstrap';
+import './settings.js';
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+document.addEventListener('alpine:init', () => {
+    Alpine.data('reviewSession', () => ({
+        showAnswer: false,
+
+        // Inicialização
+        init() {
+            // Foca no container para capturar eventos de teclado se necessário
+            this.$el.focus();
+        },
+
+        // Ação para revelar a resposta do cartão
+        reveal() {
+            this.showAnswer = true;
+        },
+
+        // Submete o formulário baseado no valor do status
+        submitReview(statusValue) {
+            // Procura um botão dentro do componente que tenha o valor correspondente
+            // Ex: <button name="status" value="easy">
+            const button = this.$el.querySelector(`button[name="status"][value="${statusValue}"]`);
+
+            if (button) {
+                button.click(); // Simula o clique para enviar o formulário
+            } else {
+                console.warn(`Botão para o status '${statusValue}' não encontrado.`);
+            }
+        },
+
+        // Gerenciamento de atalhos de teclado
+        handleKeydown(event) {
+            // Ignora se o usuário estiver digitando em um input/textarea
+            if (['INPUT', 'TEXTAREA'].includes(event.target.tagName)) return;
+
+            // 1. Revelar Resposta (Espaço)
+            if (!this.showAnswer && (event.code === 'Space' || event.key === ' ')) {
+                event.preventDefault(); // Previne o scroll da página
+                this.reveal();
+                return;
+            }
+
+            // 2. Submeter Revisão (Teclas 1, 2, 3, 4) - APENAS se a resposta estiver visível
+            if (this.showAnswer) {
+                switch (event.key) {
+                    case '1':
+                        this.submitReview('again');
+                        break;
+                    case '2':
+                        this.submitReview('hard');
+                        break;
+                    case '3':
+                        this.submitReview('good');
+                        break;
+                    case '4':
+                        this.submitReview('easy');
+                        break;
+                }
+            }
+        }
+    }));
+});
+
+
+
+Alpine.start();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const htmlElement = document.documentElement;
+    const toggleButton = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    // Função auxiliar para atualizar a UI do botão (Sol/Lua)
+    const updateIcons = (isDark) => {
+        if (sunIcon && moonIcon) {
+            if (isDark) {
+                // Se está no modo Escuro, mostre a Lua (moon) e esconda o Sol (sun)
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+
+            } else {
+                // Se está no modo Claro, mostre o Sol (sun) e esconda a Lua (moon)
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+
+            }
+        }
+    };
+
+    // 1. Sincronização Inicial:
+    // Garante que o ícone inicial esteja correto, baseado na classe 'dark' 
+    // que já foi aplicada pelo script inline no <head>
+    updateIcons(htmlElement.classList.contains('dark'));
+
+    // 2. Lógica de Alternância (No Clique)
+    if (toggleButton) {
+        toggleButton.addEventListener('click', () => {
+            let newTheme;
+            let settings = {};
+            const stored = localStorage.getItem('softlearn.settings');
+            // Tenta carregar as configurações existentes
+            if (stored) {
+                try {
+                    settings = JSON.parse(stored);
+                } catch (e) {
+                    console.error("Erro ao parsear settings:", e);
+                }
+            }
+            // Alternar a classe 'dark' no <html>
+            if (htmlElement.classList.contains('dark')) {
+                // Se estava Dark, vai para Light
+                htmlElement.classList.remove('dark');
+                newTheme = 'light';
+            } else {
+                // Se estava Light (ou sistema), vai para Dark
+                htmlElement.classList.add('dark');
+                newTheme = 'dark';
+            }
+            // 3. Atualizar ícones e Salvar a Preferência
+            updateIcons(newTheme === 'dark');
+
+            // Salva o novo tema na estrutura de settings que você já usa
+            settings.theme = newTheme;
+            localStorage.setItem('softlearn.settings', JSON.stringify(settings));
+        });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Variáveis Globais de Estado
+// IMPORTANTE: Este arquivo assume que o jsPlumb foi carregado globalmente via CDN no blade.
 
 // Variáveis Globais de Estado
 window.jsp = null; 

@@ -56,6 +56,4 @@ use App\Http\Controllers\DiagramaController;
 Route::get('/diagramas', [DiagramaController::class, 'index'])->name('diagramas');
 
 
-
-
 require __DIR__ . '/auth.php';

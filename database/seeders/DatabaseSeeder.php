@@ -3,24 +3,17 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
+    /**
+     * Seed the application's database.
+     */
     public function run(): void
     {
-        // cria usuário de teste opcional (idempotente para rodar seed várias vezes)
-        User::firstOrCreate(
-            ['email' => 'test@example.com'],
-            [
-                'name' => 'Test User',
-                'password' => bcrypt('password'),
-            ]
-        );
-
-        // chama o seeder Testes
+        // Chama o seu seeder de níveis
         $this->call([
-            Testes::class,
+            LevelSeeder::class,
         ]);
     }
 }
