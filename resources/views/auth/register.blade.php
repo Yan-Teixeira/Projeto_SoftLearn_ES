@@ -2,12 +2,12 @@
  
     <div class="w-full max-w-4xl mx-auto my-6 px-6 py-8 bg-white border border-gray-200 shadow-md sm:rounded-lg mt-[-20px] z-[1]">
 
-        <h1 class="text-2xl text-center text-black mb-4">Registre-se</h1>
+        <h1 class="text-3xl font-extrabold text-center text-[#16a24b] mb-4">Registre-se</h1>
 
         <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
 
             <!-- Form container -->
-            <div class="flex-1 bg-white shadow-md border border-gray-200 overflow-hidden rounded-lg p-6">
+            <div class="flex-1 bg-white shadow-md border border-gray-200 overflow-hidden rounded-lg p-4">
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
 
@@ -62,8 +62,8 @@
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                     </div>
                     
-                    <div class="flex items-center justify-center mt-6">
-                        <x-primary-button class="w-full sm:w-auto">
+                    <div class="flex items-center justify-center mt-4 mb-2">
+                        <x-primary-button class="w-full sm:w-auto z-50">
                             {{ __('Criar conta') }}
                         </x-primary-button>
                     </div>
