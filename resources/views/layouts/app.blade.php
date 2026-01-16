@@ -199,6 +199,7 @@
                         </button>
 
                         <div class="flex items-center space-x-2">
+                            @auth
                             <img class="h-8 w-8 rounded-full object-cover" 
                                 src="https://www.gravatar.com/avatar/{{ md5(strtolower(trim(Auth::user()->email))) }}?d=mp" 
                                 alt="{{ Auth::user()->name }}">
@@ -206,6 +207,7 @@
                             <span class="text-gray-700 dark:text-gray-200 font-semibold text-sm">
                                 {{ Auth::user()->name }}
                             </span>
+                            @endauth
                         </div>
                     </div>
                 </header>
