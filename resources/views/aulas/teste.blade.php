@@ -30,8 +30,8 @@
 
     <br>
 
-    <a href="/quiz/introducao/0" class="btn">
-        📝 Ir para o Quiz
+    <a href="{{ url('/quiz/introducao/0') }}" class="btn">
+    📝 Ir para o Quiz
     </a>
 
     <a href="/quiz" class="btn secondary">
