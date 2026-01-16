@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\CompeticaoController;
 use App\Http\Controllers\LevelController;
+use App\Http\Controllers\QuizController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -57,3 +58,10 @@ Route::get('/diagramas', [DiagramaController::class, 'index'])->name('diagramas'
 
 
 require __DIR__ . '/auth.php';
+ 
+
+
+Route::get('/quiz', [QuizController::class, 'index']);
+Route::get('/quiz/{module}/{index}', [QuizController::class, 'question']);
+
+Route::get('/aula/teste', [AulaController::class, 'aulaTeste']);

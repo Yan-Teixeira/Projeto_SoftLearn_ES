@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    background: #f4f6f8;
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+.module {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.btn {
+    padding: 10px 15px;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.secondary {
+    background: #7f8c8d;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #ecf0f1;
+    font-size: 15px;
+}
+
+.option:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.correct {
+    background: #2ecc71 !important;
+    color: white;
+}
+
+.wrong {
+    background: #e74c3c !important;
+    color: white;
+}
+
+.navigation {
+    margin-top: 20px;
+}
+
+/* 🔴🟢 CONTAINER DO QUIZ */
+#quiz-container {
+    padding: 30px;
+    border-radius: 10px;
+    background: white; /* 🔥 ISSO QUE FALTAVA */
+    transition: background 0.4s ease;
+}
+
+/*  ACERTO */
+.acerto {
+    background-color: #13da66;
+}
+
+/*  ERRO */
+.erro {
+    background-color: #e74c3c;
+}
+
+/* TEXTO BRANCO QUANDO FUNDO COLORIDO */
+.acerto h2,
+.acerto h3,
+.acerto p,
+.erro h2,
+.erro h3,
+.erro p {
+    color: rgb(209, 152, 152);
+}
