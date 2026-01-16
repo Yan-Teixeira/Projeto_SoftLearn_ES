@@ -26,4 +26,5 @@ class QuizController extends Controller
             'index' => $index
         ]);
     }
+    
 }

@@ -36,7 +36,8 @@
             </a>
         @endif
 
-        <a href="/quiz" class="btn secondary">Módulos</a>
+        <a href="/aula/teste" class="btn secondary">Módulos</a>
+
     </div>
 
 </div>
