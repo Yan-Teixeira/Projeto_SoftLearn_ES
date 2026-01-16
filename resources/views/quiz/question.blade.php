@@ -103,19 +103,12 @@
                 container.classList.add('ring-2', 'ring-red-500');
             }
 
-            // mostra botão de próxima/finalizar e avança após 2s
-            setTimeout(() => {
-                if (btnProximo) {
-                    btnProximo.style.display = 'inline-flex';
-                    btnProximo.click();
-                } else if (btnFinalizar) {
-                    btnFinalizar.style.display = 'inline-flex';
-                    btnFinalizar.click();
-                } else {
-                    // Se não há próxima pergunta, volta para módulos
-                    window.location.href = '/aula/teste';
-                }
-            }, 2000);
+            // mostra botão de próxima/finalizar apenas
+            if (btnProximo) {
+                btnProximo.style.display = 'inline-flex';
+            } else if (btnFinalizar) {
+                btnFinalizar.style.display = 'inline-flex';
+            }
         }
     </script>
 </x-app-layout>
