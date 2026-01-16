@@ -3,6 +3,25 @@
 <head>
     <title>{{ $quiz['titulo'] }}</title>
     <link rel="stylesheet" href="/css/quiz.css">
+    <style>
+        .option.correct {
+            background: #2ecc71 !important;
+            color: white !important;
+        }
+        
+        .option.wrong {
+            background: #e74c3c !important;
+            color: white !important;
+        }
+        
+        #quiz-container.acerto {
+            background-color: #2ecc71 !important;
+        }
+        
+        #quiz-container.erro {
+            background-color: #e74c3c !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -53,43 +72,32 @@ function responder(botao) {
     botoes.forEach(b => b.disabled = true);
 
     if (marcada === correta) {
-
         // botão correto fica verde
         botao.classList.add('correct');
-
         // tela fica verde
         container.classList.add('acerto');
-
-        // mostra botão próximo
-        if (btnProximo) {
-            btnProximo.style.display = 'inline-block';
-        }
-
     } else {
-
         // botão errado fica vermelho
         botao.classList.add('wrong');
-
         // botão correto fica verde
         botoes.forEach(b => {
             if (b.dataset.key === correta) {
                 b.classList.add('correct');
             }
         });
-
         // tela fica vermelha
         container.classList.add('erro');
-
-        // NÃO remove as cores
-        // libera tentativa novamente após 1.5s
-        setTimeout(() => {
-            container.classList.remove('erro');
-
-            botoes.forEach(b => {
-                b.disabled = false;
-            });
-        }, 1500);
     }
+
+    // avança para próxima pergunta após 2s
+    setTimeout(() => {
+        if (btnProximo) {
+            btnProximo.click();
+        } else {
+            // Se não há próxima pergunta, volta para módulos
+            window.location.href = '/quiz';
+        }
+    }, 2000);
 }
 </script>
 

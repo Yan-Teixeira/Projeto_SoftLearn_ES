@@ -39,6 +39,7 @@ h1, h2 {
     cursor: pointer;
     background: #ecf0f1;
     font-size: 15px;
+    transition: all 0.3s ease;
 }
 
 .option:disabled {
@@ -46,14 +47,14 @@ h1, h2 {
     opacity: 0.8;
 }
 
-.correct {
+.option.correct {
     background: #2ecc71 !important;
-    color: white;
+    color: white !important;
 }
 
-.wrong {
+.option.wrong {
     background: #e74c3c !important;
-    color: white;
+    color: white !important;
 }
 
 .navigation {
@@ -64,18 +65,18 @@ h1, h2 {
 #quiz-container {
     padding: 30px;
     border-radius: 10px;
-    background: white; /* 🔥 ISSO QUE FALTAVA */
-    transition: background 0.4s ease;
+    background: white;
+    transition: background-color 0.2s ease;
 }
 
 /*  ACERTO */
-.acerto {
-    background-color: #13da66;
+#quiz-container.acerto {
+    background-color: #2ecc71 !important;
 }
 
 /*  ERRO */
-.erro {
-    background-color: #e74c3c;
+#quiz-container.erro {
+    background-color: #e74c3c !important;
 }
 
 /* TEXTO BRANCO QUANDO FUNDO COLORIDO */
