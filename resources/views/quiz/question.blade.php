@@ -18,7 +18,7 @@
                 {{-- Barra de Progresso --}}
                 <div class="mb-6">
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="bg-green-600 h-2 rounded-full transition-all duration-300" style="width: {{ (($index + 1) / count($quiz['perguntas'])) * 100 }}%"></div>
+                        <div class="bg-green-600 h-2 rounded-full transition-all duration-300" style="width: { (($index + 1) / count($quiz['perguntas'])) * 100 }%"></div>
                     </div>
                 </div>
 
