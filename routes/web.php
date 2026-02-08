@@ -28,9 +28,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/aulas', [ModuleController::class, 'index'])->name('aulas');
     Route::get('/aulas/{id}', [ModuleController::class, 'show'])->name('aulas.show');
 
-    Route::post('/gamification/lessons/{lesson}/complete', [GamificationController::class, 'completeLesson'])->name('gamification.lessons.complete');
-    Route::post('/gamification/activities/complete', [GamificationController::class, 'completeActivity'])->name('gamification.activities.complete');
-
     // Rotas da competição
     Route::get('/competicao', [CompeticaoController::class, 'index'])->name('competicao');
     Route::get('/competicao/{id}', [CompeticaoController::class, 'show'])->name('competicao.perfil');
@@ -60,8 +57,6 @@ Route::get('/diagramas', [DiagramaController::class, 'index'])->name('diagramas'
 require __DIR__ . '/auth.php';
  
 
-
-Route::get('/quiz', [QuizController::class, 'index']);
-Route::get('/quiz/{module}/{index}', [QuizController::class, 'question']);
+Route::get('/quiz/{slug}/{index}', [QuizController::class, 'show']);
 
 Route::get('/aula/teste', [AulaController::class, 'aulaTeste']);

@@ -11,20 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_questoes', function (Blueprint $table) {
+        Schema::create('questoes', function (Blueprint $table) {
             $table->id();
-            $table->foreign('quiz_id')->constrained('quizzes')->onDelete('cascade');
+
+            // FK para quizzes
+            $table->foreignId('quiz_id')
+                  ->constrained('quizzes')
+                  ->onDelete('cascade');
+
             $table->text('enunciado');
-            $table->text('dica');
+
+            // DICA da questão
+            $table->string('dica')->nullable();
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('_questoes');
+        Schema::dropIfExists('questoes');
     }
 };

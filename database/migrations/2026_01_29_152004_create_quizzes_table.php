@@ -12,20 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('quizzes', function (Blueprint $table) {
+            $table->string('slug')->unique()->after('titulo');
             $table->id();
-            $table->foreign('aula_id')->constrained('aulas')->onDelete('cascade');
+            $table->foreignId('aula_id')->constrained('aulas')->onDelete('cascade');
             $table->string('titulo');
             $table->string('dificuldade')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('quizzes');
+        Schema::table('quizzes', function (Blueprint $table) {
+            $table->dropColumn('slug');
+        });
     }
 };

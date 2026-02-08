@@ -2,29 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Quiz;
 
 class QuizController extends Controller
 {
-    public function index()
+    public function show(string $slug, int $index = 0)
     {
-        $modules = config('quiz');
+        $quiz = Quiz::where('slug', $slug)
+            ->with('questoes.opcoes')
+            ->firstOrFail();
 
-        return view('quiz.index', compact('modules'));
-    }
+        $questao = $quiz->questoes[$index] ?? null;
 
-    public function question($module, $index)
-    {
-        $quiz = config("quiz.$module");
-
-        $question = $quiz['perguntas'][$index] ?? null;
+        if (!$questao) {
+            abort(404);
+        }
 
         return view('quiz.question', [
-            'module' => $module,
             'quiz' => $quiz,
-            'question' => $question,
+            'questao' => $questao,
             'index' => $index
         ]);
     }
-    
 }
+
